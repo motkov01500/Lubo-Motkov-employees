@@ -3,6 +3,7 @@ import FileUpload from './components/FileUpload';
 import './App.css';
 import UserTableReactHooks from './components/UserTableReactHooks';
 import GetRequest from './components/GetRequest';
+import EmployeeSameProject from './components/EmployeeSameProject';
 
 const App = () => (
   <div className='container mt-4'>
@@ -12,6 +13,9 @@ const App = () => (
     <FileUpload />
     <div>
       <GetRequest />
+    </div>
+    <div>
+      <EmployeeSameProject />
     </div>
   </div>
 );
