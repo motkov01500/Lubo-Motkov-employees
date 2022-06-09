@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+button {
+  font-size: 2rem;
+}
+
+form input {
+  border-radius: 0.5rem;
+  border: 0.2rem solid blue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+table {
+  width: 70rem;
+}
+
+tr:nth-child(even) {
+  background-color: #99e5f0;
+}

@@ -10,9 +10,9 @@ class EmployeeSameProject extends React.Component {
         };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         // Simple GET request using axios
-        axios.get("http://localhost:4000/employees/getTheLongestWorkingTeam")
+        await axios.get("http://localhost:4000/employees/getTheLongestWorkingTeam")
             .then(response => this.setState({ employees: response.data }));
     }
 
@@ -38,6 +38,9 @@ class EmployeeSameProject extends React.Component {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <button onClick={() => window.location.reload()}>Show info in table</button>
                 </div>
             </div>
         );

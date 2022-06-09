@@ -1,3 +1,6 @@
+html {
+  font-size: 62.5%;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +38,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+table {
+  border: 3px dotted black;
+  border-radius: 15px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  background-color: #baeff7;
+}
+
+th {
+  border: 1px solid blue;
+  border-radius: 0.6rem;
+  background-color: #42def6;
+}
+
+td {
+  border: 1px solid blue;
+}
+
+button {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.Allthings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: wheat;
 }
