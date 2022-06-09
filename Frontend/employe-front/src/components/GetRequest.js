@@ -35,11 +35,11 @@ class GetRequest extends React.Component {
                         <tbody>
                             {employees.length ? employees.map(emp => (
                                 <tr>
-                                    <td>{emp.EmpId}</td>
-                                    <td>{emp.ProjectId}</td>
-                                    <td>{emp.DateFrom}</td>
-                                    <td>{emp.DateTo}</td>
-                                    <td>{emp.DaysWorked}</td>
+                                    <td keyValue={emp.EmpId}>{emp.EmpId}</td>
+                                    <td keyValue={emp.EmpId}>{emp.ProjectId}</td>
+                                    <td keyValue={emp.EmpId}>{emp.DateFrom}</td>
+                                    <td keyValue={emp.EmpId}>{emp.DateTo}</td>
+                                    <td keyValue={emp.EmpId}>{emp.DaysWorked}</td>
                                 </tr>
                             )) :
                                 (

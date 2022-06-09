@@ -5,3 +5,10 @@ export class Employee {
   DateTo?: string;
   DaysWorked?: number;
 }
+
+export class EmployeeProject {
+  EmpIdFirst: string;
+  EmpIdSecond: string;
+  ProjectId: string;
+  DaysWorked?: number;
+}

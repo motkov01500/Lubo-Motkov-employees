@@ -11,11 +11,12 @@ import {
   EMPLOYEE_GET_ALL_ASC_METHOD,
   EMPLOYEE_GET_ALL_DESC_METHOD,
   EMPLOYEE_GET_ALL_METHOD,
+  EMPLOYEE_GET_ALL_WITH_SAME_PROJECT_METHOD,
   EMPLOYEE_TEST_METHOD,
   EMPLOYEE_UPLOAD_FILE_METHOD,
 } from './constants';
 import { EmployeeService } from './employee.service';
-import { Employee } from './models';
+import { Employee, EmployeeProject } from './models';
 import { editFileName, imageFileFilter } from './helpers';
 import { diskStorage } from 'multer';
 
@@ -63,5 +64,10 @@ export class EmpoloyeeController {
   @Get(EMPLOYEE_GET_ALL_ASC_METHOD)
   getAllEmployeesAsc() {
     return this.employeeService.getAllEmployeesAsc();
+  }
+
+  @Get(EMPLOYEE_GET_ALL_WITH_SAME_PROJECT_METHOD)
+  getTheLongestWorkingTeam(): EmployeeProject {
+    return this.employeeService.getTheLongestWorkingTeam();
   }
 }

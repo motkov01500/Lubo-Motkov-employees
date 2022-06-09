@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CsvParser } from 'nest-csv-parser';
-import { Employee } from './models';
+import { Employee, EmployeeProject } from './models';
 import * as fs from 'fs';
 import { async } from 'rxjs';
 import * as csv from 'csvtojson';
@@ -65,8 +65,6 @@ export class EmployeeService {
       .sort((a, b) => (a.DaysWorked > b.DaysWorked ? 1 : -1));
   }
 
-  
-
   getAllEmployeesDesc(): Employee[] {
     return this.employeesList
       ?.map((emp) => {
@@ -91,5 +89,35 @@ export class EmployeeService {
       const DaysWorked = +(Difference_In_Time / (1000 * 3600 * 24)).toFixed(0);
       return { ...emp, DaysWorked };
     });
+  }
+
+  getTheLongestWorkingTeam(): EmployeeProject {
+    let teams: EmployeeProject[] = [];
+    const allEmployees = this.getAllEmployees();
+
+    allEmployees?.map((currentEmpl) => {
+      const searchedEmpl: Employee = allEmployees.find(
+        (searchEmpl) =>
+          searchEmpl.ProjectId === currentEmpl.ProjectId &&
+          searchEmpl.EmpId !== currentEmpl.EmpId &&
+          !teams.map((team) => team.ProjectId === searchEmpl.ProjectId).length,
+      );
+
+      if (searchedEmpl) {
+        const { ProjectId, EmpId: EmpIdFirst, DaysWorked } = searchedEmpl;
+        const allWorked = DaysWorked + currentEmpl.DaysWorked;
+
+        teams.push({
+          ProjectId,
+          EmpIdFirst,
+          EmpIdSecond: currentEmpl.EmpId,
+          DaysWorked:
+            allWorked -
+            (allWorked - Math.max(DaysWorked, currentEmpl.DaysWorked)),
+        });
+      }
+    });
+
+    return teams.sort((a, b) => (a.DaysWorked < b.DaysWorked ? 1 : -1)).shift();
   }
 }
