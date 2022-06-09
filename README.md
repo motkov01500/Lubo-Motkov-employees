@@ -1,5 +1,5 @@
 # Lubo-Motkov-employees
-I get a decision to make this task to a full stack project.
+I made a decision to make this task to a full stack project.
 To start Backend :
 First: open a terminal and go to directory /Backend/employee-api and run npm install,
 Second:when you in directory  /Backend/employee-api run in terminal npm run start:dev.
